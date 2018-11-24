@@ -10,5 +10,5 @@ Light levels:<br>
 Dark: ~2<br>
 Highest value: 1023<br>
 
-Serial communication:<br>
-`temp,humidity,light_reading,soil_moisture`
+Log file format:<br>
+`temperature,humidity,light,moisture,year,month,day,hour,minute,second`
