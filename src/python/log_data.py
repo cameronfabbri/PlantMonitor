@@ -1,6 +1,8 @@
 import serial
 import datetime
 
+# take measurements every minute and average over the whole hour, day, week, etc
+
 if __name__ == '__main__':
 
     with open('../../data/sensors.txt','a') as f:
