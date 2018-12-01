@@ -3,3 +3,6 @@
 *.swp
 *.*~
 *.txt
+*.png
+data/
+build-uno/
