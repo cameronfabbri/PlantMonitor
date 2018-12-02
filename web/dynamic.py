@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 
 from datetime import datetime
 import time
+import numpy as np
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -16,10 +17,11 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div(
     html.Div([
         html.H1('Plant Monitor'),
+        #html.Div(id='live-update-text'),
         dcc.Graph(id='live-update-graph'),
         dcc.Interval(
             id='interval-component',
-            interval=1*0000,
+            interval=1*100,
             n_intervals=0
         )
     ])
@@ -27,7 +29,9 @@ app.layout = html.Div(
 
 def getData(pos=0):
     f.seek(pos)
+
     if pos == 0:
+    #if 1:
         data = {
             'year': [],
             'month': [],
@@ -41,8 +45,6 @@ def getData(pos=0):
         }
     for line in f:
         line = line.rstrip().split(',')
-        print 'line:',line
-        exit()
         temperature = float(line[0])
         humidity = float(line[1])
         light = float(line[2])
@@ -67,20 +69,30 @@ def getData(pos=0):
     return data, pos
 
 @app.callback(Output('live-update-graph','figure'), [Input('interval-component','n_intervals')])
-def update_metrics(n):
+def update_graph_live(n):
 
-    try: pos
-    except NameError: pos = 0
+    #try: pos
+    #except NameError: pos = 0
 
-    data, pos = getData(pos)
-    print 'pos:',pos
+    #data,pos = getData(pos)
+    #print 'pos:',pos
+
+    x,y = [],[]
+    for i in range(100):
+        x.append(i)
+        y.append(np.random.rand())
 
     fig = plotly.tools.make_subplots(rows=2,cols=1, vertical_spacing=0.2)
+
+    #print 'x:',x
+    #print 'y:',y
+    #print
 
     fig['layout']['margin'] = {'l':30, 'r': 10, 'b': 30, 't': 10}
     fig['layout']['legend'] = {'x': 0, 'y': 1, 'xanchor': 'left'}
 
-    fig.append_trace({'x':data['minute'], 'y':data['moisture']}, 1,1)
+    #fig.append_trace({'x':data['minute'], 'y':data['moisture']}, 1,1)
+    fig.append_trace({'x':x, 'y':y}, 1,1)
 
     return fig
 
