@@ -18,6 +18,7 @@ if __name__ == '__main__':
                 m.append(moisture)
                 #print 'temp:',temp,'humidity:',humidity,'light:',light,'mositure:',mositure
                 #print 'moisture:',moisture
-                print 'average:',np.mean(np.asarray(m))
+                mm = np.asarray(m)
+                print 'sample size:',len(mm),'min:',np.min(mm),'max:',np.max(mm),'average:',np.mean(mm)
             except:
                 continue
