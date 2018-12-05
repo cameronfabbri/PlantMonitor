@@ -29,8 +29,10 @@ light = df['light'].values
 
 # Put readings into a common range (basically percentage)
 moisture = normalize(moisture,0,100)[idx]
-temperature = normalize(temperature,0,100)[idx]
-humidity = normalize(humidity,0,100)[idx]
+# Don't normalize temperature
+temperature = temperature[idx]
+#humidity = normalize(humidity,0,100)[idx]
+humidity = humidity[idx]
 light = normalize(light,0,100)[idx]
 
 app.layout = html.Div([
