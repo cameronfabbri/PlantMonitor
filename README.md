@@ -11,4 +11,4 @@ Dark: ~2<br>
 Highest value: 1023<br>
 
 Log file format:<br>
-`temperature,humidity,light,moisture,year,month,day,hour,minute,second`
+`temperature,humidity,light,moisture,year-month-day-hour-minute-second`
