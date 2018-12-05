@@ -1,7 +1,7 @@
 # PlantMonitor
 Monitoring my plant with various sensors
 
-![plant](images/plant.png)
+![plant](images/plant.png | width=500)
 
 Soil levels:<br>
 Completely dry: 0<br>
