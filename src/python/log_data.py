@@ -5,7 +5,7 @@ import datetime
 
 if __name__ == '__main__':
 
-    with open('../../data/sensors.txt','a') as f:
+    with open('../../data/sensors.csv','a') as f:
         while True:
             s = serial.Serial('/dev/ttyACM0',9600)
             vals = s.readline().rstrip().split(',')
@@ -25,5 +25,5 @@ if __name__ == '__main__':
             hour = str(now.hour)
             minute = str(now.minute)
             second = str(now.second)
-            f.write(temp+','+humidity+','+light+','+moisture+','+year+','+month+','+day+','+hour+','+minute+','+second+'\n')
+            f.write(temp+','+humidity+','+light+','+moisture+','+year+'-'+month+'-'+day+'-'+hour+'-'+minute+'-'+second+'\n')
             f.flush()
