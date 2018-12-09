@@ -20,7 +20,7 @@ df = pd.read_csv('../data/sensors.csv')
 dates = [datetime.strptime(x,'%Y-%m-%d-%H-%M-%S') for x in df['date']]
 
 # Take a random 25% of the data
-idx = np.random.choice(np.arange(len(dates)), int(len(dates)/4), replace=False)
+idx = np.random.choice(np.arange(len(dates)), int(len(dates)), replace=False)
 
 moisture = df['moisture'].values
 temperature = df['temperature'].values
