@@ -20,7 +20,7 @@ df = pd.read_csv('../data/sensors.csv')
 dates = [datetime.strptime(x,'%Y-%m-%d-%H-%M-%S') for x in df['date']]
 
 # Take a random 25% of the data
-idx = np.random.choice(np.arange(len(dates)), int(len(dates)), replace=False)
+idx = np.random.choice(np.arange(len(dates)), int(len(dates)/4), replace=False)
 
 moisture = df['moisture'].values
 temperature = df['temperature'].values
@@ -44,45 +44,26 @@ app.layout = html.Div([
                 go.Scatter(
                     x = dates,
                     y = signal.savgol_filter(moisture,101,3),
-                    mode='markers',
-                    opacity=0.9,
-                    marker={
-                        'size': 8,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
+                    mode='lines',
                     name='Moisture'
                 ),
                 go.Scatter(
                     x = dates,
                     y = signal.savgol_filter(temperature,101,3),
-                    mode='markers',
+                    mode='lines',
                     opacity=0.9,
-                    marker={
-                        'size': 8,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
                     name='Temperature'
                 ),
                 go.Scatter(
                     x = dates,
                     y = signal.savgol_filter(humidity,101,3),
-                    mode='markers',
-                    opacity=0.9,
-                    marker={
-                        'size': 8,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
+                    mode='lines',
                     name='Humidity'
                 ),
                 go.Scatter(
                     x = dates,
                     y = signal.savgol_filter(light,101,3),
-                    mode='markers',
-                    opacity=0.9,
-                    marker={
-                        'size': 8,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
+                    mode='lines',
                     name='Light'
                 )
 
