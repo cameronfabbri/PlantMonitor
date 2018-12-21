@@ -3,7 +3,7 @@ Monitoring my plant with various sensors
 
 ![graph](images/plant.png)
 
-![plant](images/img1.jpg)
+![plant](images/img1.jpg =300x200)
 
 Soil levels:<br>
 Completely dry: 0<br>
