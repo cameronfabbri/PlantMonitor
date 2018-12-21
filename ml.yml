@@ -2,9 +2,9 @@ name: ml
 channels:
 - menpo
 dependencies:
-- python=3.6
-- matplotlib
+- python=3.4
 - numpy
+- pip:
 - scikit-learn
 - pandas
 - tqdm
@@ -12,7 +12,6 @@ dependencies:
 - opencv
 - joblib
 - psutil
-- pip:
-- tensorflow-gpu
+- matplotlib
 - scipy
 - imageio
